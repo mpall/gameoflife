@@ -16,13 +16,13 @@ public class Main {
 		setup();
 		//setupBlock();
 		//setupBlinker();
-		setupGlider();
-		setupGlider(10);
-		setupGlider(15);
-		setupGlider(20);
-		setupLightWeightShip(7);
+		setupGlider(6);
+		//setupGlider(10);
+		setupGlider(12);
+		//setupGlider(20);
+		//setupLightWeightShip(7);
 		setupLightWeightShip(13);
-		setupLightWeightShip(23);
+		//setupLightWeightShip(23);
 		setupLightWeightShip(29);
 		
 		new Animator(thisGrid).interval(100).run();
