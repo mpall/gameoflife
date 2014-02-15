@@ -73,21 +73,18 @@ public class Animator {
 	}
 
 	private void setupGrids() {
-		gridOfCells = new Grid(thisGrid.getHightAndWidth());
-		CellLoader loader = new CellLoader(gridOfCells);
-		loader.loadCells();
-
-		nextGrid = new Grid(thisGrid.getHightAndWidth());
-
-		new StringLoader(nextGrid).loadWith(DEAD);
+		gridOfCells = new CellLoader(new Grid(thisGrid.getHightAndWidth())).loadCells();
+		nextGrid = new StringLoader(new Grid(thisGrid.getHightAndWidth())).loadWith(DEAD);
 	}
 
-	public void interactiveMode() {
+	public Animator interactiveMode() {
 		this.interactiveMode  = true;
+		return this;
 	}
 	
-	public void interval(int interval) {
+	public Animator interval(int interval) {
 		this.interval = interval;
+		return this;
 	}
 
 }

@@ -8,10 +8,11 @@ public class CellLoader {
 		this.grid = grid;
 	}
 	
-	public void loadCells() {
+	public Grid loadCells() {
 		for(int i = 0; i < grid.size(); i++) {
 			grid.set(i, new CellFactory(grid, i).getCellFactory().getCell());
 		}
+		return grid;
 	}
 
 }

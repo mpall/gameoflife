@@ -13,10 +13,6 @@ public class Main {
 		new Main().run();
 	}
 	public void run() throws IOException, InterruptedException {
-//		Grid grid = new Grid(hightAndWidth);
-//		new StringLoader(grid).loadNumbers();
-//		System.out.println(new Printer(grid).print());
-		
 		setup();
 		//setupBlock();
 		//setupBlinker();
@@ -29,10 +25,8 @@ public class Main {
 		setupLightWeightShip(23);
 		setupLightWeightShip(29);
 		
-		Animator animator = new Animator(thisGrid);
-		//animator.interactiveMode();
-		animator.interval(100);
-		animator.run();
+		new Animator(thisGrid).interval(100).run();
+		//new Animator(thisGrid).interactiveMode().run();
 	}
 	
 	private void setup() {
@@ -86,9 +80,6 @@ public class Main {
 	}
 	
 	private void setupGrid(int hightAndWidth) {
-		thisGrid = new Grid(hightAndWidth);
-		new StringLoader(thisGrid).loadWith(DEAD);
+		thisGrid = new StringLoader(new Grid(hightAndWidth)).loadWith(DEAD);
 	}
-
-
 }
