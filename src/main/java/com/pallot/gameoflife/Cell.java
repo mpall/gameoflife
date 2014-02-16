@@ -26,22 +26,30 @@ public class Cell {
 		return index;
 	}
 
-	public int neighboursCount(Grid thisGrid) {
+	public int neighboursCount(Grid grid) {
 		int count = 0;
 		for(int i: indexes) {
-			if(isAlive(i, thisGrid)) {
+			if(isAlive(i, grid)) {
 				count++;
 			}
 		}
 		return count;
 	}
 	
-	public boolean isAlive(int i, Grid thisGrid) {
-		return ALIVE.equals(thisGrid.get(i));
+	public boolean isAlive(int i, Grid grid) {
+		return ALIVE.equals(grid.get(i));
 	}
 
-	public boolean isAlive(Grid thisGrid) {
-		return isAlive(index, thisGrid);
+	public boolean isAlive(Grid grid) {
+		return isAlive(index, grid);
+	}
+
+	public int x(Grid grid) {
+		return index%grid.getHightAndWidth();
+	}
+	
+	public int y(Grid grid) {
+		return index/grid.getHightAndWidth();
 	}
 	
 }

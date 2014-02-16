@@ -25,8 +25,9 @@ public class Main {
 		//setupLightWeightShip(0, 23);
 		setupLightWeightShip(0, 29);
 		
-		new Animator(thisGrid).interval(100).run();
+		//new Animator(thisGrid).interval(100).run();
 		//new Animator(thisGrid).interactiveMode().run();
+		new AnimatorSwing(thisGrid).interval(100).run();
 	}
 	
 	private void setup() {

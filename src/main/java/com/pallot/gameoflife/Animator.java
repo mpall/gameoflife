@@ -21,7 +21,7 @@ public class Animator {
 	public void run() throws IOException, InterruptedException {
 		setupGrids();
 		while (true) {
-			System.out.println(new Printer(thisGrid).print());
+			draw();
 			System.out.println(padding);
 			if(interactiveMode) {
 				BufferedReader bis = new BufferedReader(new InputStreamReader(
@@ -32,6 +32,7 @@ public class Animator {
 			}else {
 				Thread.sleep(interval);
 			}
+			postWait();
 
 			for (Cell cell : gridOfCells.getCellData()) {
 				int neighbours = cell.neighboursCount(thisGrid);
@@ -39,13 +40,13 @@ public class Animator {
 					if (underPopulated(neighbours)) {
 						nextGrid.set(cell.getIndex(), DEAD);
 					} else if (justRight(neighbours)) {
-						nextGrid.set(cell.getIndex(), ALIVE);
+						becomeAlive(cell);
 					} else if (overPopulated(neighbours)) {
 						nextGrid.set(cell.getIndex(), DEAD);
 					}
 				} else {
 					if (readyForReproduction(neighbours)) {
-						nextGrid.set(cell.getIndex(), ALIVE);
+						becomeAlive(cell);
 					}
 				}
 			}
@@ -54,6 +55,18 @@ public class Animator {
 			new StringLoader(nextGrid).loadWith(" ");
 		}
 
+	}
+
+	protected void postWait() {
+		
+	}
+
+	protected void draw() {
+		System.out.println(new Printer(thisGrid).print());
+	}
+
+	protected void becomeAlive(Cell cell) {
+		nextGrid.set(cell.getIndex(), ALIVE);
 	}
 
 	private boolean readyForReproduction(int neighbours) {
@@ -72,7 +85,7 @@ public class Animator {
 		return neighbours < 2;
 	}
 
-	private void setupGrids() {
+	protected void setupGrids() {
 		gridOfCells = new CellLoader(new Grid(thisGrid.getHightAndWidth())).loadCells();
 		nextGrid = new StringLoader(new Grid(thisGrid.getHightAndWidth())).loadWith(DEAD);
 	}

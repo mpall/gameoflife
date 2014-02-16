@@ -246,6 +246,26 @@ public class CellFactoryTest {
 		
 	}
 	
+	@Test
+	public void coordinates() {
+		Grid grid = new Grid(4);
+		Cell cell = new CellFactory(grid, 0).getCellFactory().getCell();
+		assertEquals(0,cell.x(grid));
+		assertEquals(0,cell.y(grid));
+		
+		cell = new CellFactory(grid, 4).getCellFactory().getCell();
+		assertEquals(0,cell.x(grid));
+		assertEquals(1,cell.y(grid));
+		
+		cell = new CellFactory(grid, 7).getCellFactory().getCell();
+		assertEquals(3,cell.x(grid));
+		assertEquals(1,cell.y(grid));
+		
+		cell = new CellFactory(grid, 15).getCellFactory().getCell();
+		assertEquals(3,cell.x(grid));
+		assertEquals(3,cell.y(grid));
+	}
+	
 	
 
 }
