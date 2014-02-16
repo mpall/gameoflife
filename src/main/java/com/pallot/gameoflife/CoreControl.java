@@ -12,7 +12,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 public class CoreControl {
-	public static final int pixelSize = 10;
+	public static final int pixelSize = 2;
 	private final Grid thisGrid;
 	
 	public CoreControl(Grid thisGrid) {
