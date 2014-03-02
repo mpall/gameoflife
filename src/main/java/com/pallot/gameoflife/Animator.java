@@ -1,28 +1,41 @@
 package com.pallot.gameoflife;
 
+import static com.pallot.gameoflife.Cell.ALIVE;
+import static com.pallot.gameoflife.Cell.DEAD;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Queue;
 
-import static com.pallot.gameoflife.Cell.*;
+import com.pallot.gameoflife.console.Command;
 
-public class Animator {
+public class Animator implements Runnable {
 	Grid thisGrid;
 	Grid nextGrid;
 	Grid gridOfCells;
 	String padding = "";
 	private boolean interactiveMode = false;
 	private int interval = 250;
+	private Queue<Command> commandQueue;
 
-	public Animator(Grid thisGrid) {
+	public Animator(Grid thisGrid, Queue<Command> commandQueue) {
 		this.thisGrid = thisGrid;
+		this.commandQueue = commandQueue;
 	}
 
-	public void run() throws IOException, InterruptedException {
+	
+	public void run() {
+		try {
 		setupGrids();
 		while (true) {
+			if(!interactiveMode) {
+				Command command = getCommand();
+				if(command != null) {
+					Shape.getShapeFromCommand(command.getShape()).animate(thisGrid, command.x(), command.y());
+				}
+			}
 			draw();
-			System.out.println(padding);
 			if(interactiveMode) {
 				BufferedReader bis = new BufferedReader(new InputStreamReader(
 						System.in));
@@ -54,7 +67,17 @@ public class Animator {
 			nextGrid = new Grid(thisGrid.getHightAndWidth());
 			new StringLoader(nextGrid).loadWith(" ");
 		}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
+	}
+
+	private Command getCommand() {
+		if(!commandQueue.isEmpty()) {
+			return commandQueue.poll();
+		}
+		return null;
 	}
 
 	protected void postWait() {
@@ -99,5 +122,4 @@ public class Animator {
 		this.interval = interval;
 		return this;
 	}
-
 }

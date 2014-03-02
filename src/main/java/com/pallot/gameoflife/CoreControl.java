@@ -48,7 +48,6 @@ public class CoreControl {
 		
 		public void clear() {
 			fillCells.clear();
-			System.out.println(fillCells.size());
 		}
 		
 	}

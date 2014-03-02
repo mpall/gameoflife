@@ -1,12 +1,15 @@
 package com.pallot.gameoflife;
 
+import java.util.Queue;
+
 import com.pallot.gameoflife.CoreControl.JPanelGrid;
+import com.pallot.gameoflife.console.Command;
 
 public class AnimatorSwing extends Animator{
 	JPanelGrid jPanelGrid;
 
-	public AnimatorSwing(Grid thisGrid) {
-		super(thisGrid);
+	public AnimatorSwing(Grid thisGrid, Queue<Command> commandQueue) {
+		super(thisGrid, commandQueue);
 	}
 	
 	@Override
