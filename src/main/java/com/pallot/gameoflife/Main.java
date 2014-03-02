@@ -69,6 +69,79 @@ public class Main {
 		setupLightWeightShip(10, 110);
 		setupLightWeightShip(10, 120);
 		
+		setupLightWeightShip(20, 20);
+		setupLightWeightShip(20, 30);
+		setupLightWeightShip(20, 40);
+		setupLightWeightShip(20, 50);
+		setupLightWeightShip(20, 60);
+		setupLightWeightShip(20, 70);
+		setupLightWeightShip(20, 80);
+		setupLightWeightShip(20, 90);
+		setupLightWeightShip(20, 100);
+		setupLightWeightShip(20, 110);
+		setupLightWeightShip(20, 120);
+		
+		setupLightWeightShip(30, 20);
+		setupLightWeightShip(30, 30);
+		setupLightWeightShip(30, 40);
+		setupLightWeightShip(30, 50);
+		setupLightWeightShip(30, 60);
+		setupLightWeightShip(30, 70);
+		setupLightWeightShip(30, 80);
+		setupLightWeightShip(30, 90);
+		setupLightWeightShip(30, 100);
+		setupLightWeightShip(30, 110);
+		setupLightWeightShip(30, 120);
+		
+		setupLightWeightShip(40, 20);
+		setupLightWeightShip(50, 30);
+		setupLightWeightShip(40, 40);
+		setupLightWeightShip(40, 50);
+		setupLightWeightShip(40, 60);
+		setupLightWeightShip(40, 70);
+		setupLightWeightShip(40, 80);
+		setupLightWeightShip(40, 90);
+		setupLightWeightShip(40, 100);
+		setupLightWeightShip(40, 110);
+		setupLightWeightShip(40, 120);
+		
+		setupLightWeightShip(40, 30);
+		setupLightWeightShip(50, 40);
+		setupLightWeightShip(40, 50);
+		setupLightWeightShip(40, 60);
+		setupLightWeightShip(40, 70);
+		setupLightWeightShip(40, 80);
+		setupLightWeightShip(40, 90);
+		setupLightWeightShip(40, 100);
+		setupLightWeightShip(40, 120);
+		setupLightWeightShip(40, 130);
+		setupLightWeightShip(40, 140);
+		
+		setupLightWeightShip(100, 30);
+		setupLightWeightShip(100, 40);
+		setupLightWeightShip(100, 50);
+		setupLightWeightShip(100, 60);
+		setupLightWeightShip(100, 70);
+		setupLightWeightShip(100, 80);
+		setupLightWeightShip(100, 90);
+		setupLightWeightShip(100, 100);
+		setupLightWeightShip(100, 120);
+		setupLightWeightShip(100, 130);
+		setupLightWeightShip(100, 140);
+		
+		setupLightWeightShip(100, 130);
+		setupLightWeightShip(100, 140);
+		setupLightWeightShip(100, 150);
+		setupLightWeightShip(100, 160);
+		setupLightWeightShip(100, 170);
+		setupLightWeightShip(100, 180);
+		setupLightWeightShip(100, 190);
+		setupLightWeightShip(100, 100);
+		setupLightWeightShip(100, 120);
+		setupLightWeightShip(100, 130);
+		setupLightWeightShip(100, 140);
+		
+		
 		//new Animator(thisGrid).interval(100).run();
 		//new Animator(thisGrid).interactiveMode().run();
 		new AnimatorSwing(thisGrid).interval(30).run();
