@@ -74,6 +74,10 @@ public enum Shape {
 		return null;
 	}
 	
+	public static boolean isValid(String command) {
+		return getShapeFromCommand(command) != null;
+	}
+	
 	public void animate(Grid grid, int x, int y) {
 		shapeAnimator.animate(grid, x, y);
 	}

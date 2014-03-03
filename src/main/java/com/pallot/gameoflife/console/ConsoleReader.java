@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.Queue;
 
+import com.pallot.gameoflife.Shape;
+
 public class ConsoleReader implements Runnable {
 	Queue<Command> queue;
 	String[] commands = { "ship" };
@@ -25,9 +27,12 @@ public class ConsoleReader implements Runnable {
 		while (true) {
 			System.out.println("Enter command:");
 			commandString = readLine(fromConsole);
-			if ("exit".equalsIgnoreCase(commandString))
+			if ("exit".equalsIgnoreCase(commandString)) {
+				queue.add(new Command(true));
 				break;
-			if (!Arrays.asList(commands).contains(commandString)) {
+			}
+			
+			if (!Shape.isValid(commandString)) {
 				System.out.println("ERROR: [" + commandString
 						+ "]Not valid command. Start again or type exit.");
 				continue;

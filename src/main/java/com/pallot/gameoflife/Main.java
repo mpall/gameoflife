@@ -1,6 +1,5 @@
 package com.pallot.gameoflife;
 
-import static com.pallot.gameoflife.Cell.ALIVE;
 import static com.pallot.gameoflife.Cell.DEAD;
 
 import java.io.IOException;
@@ -8,6 +7,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import com.pallot.gameoflife.console.Command;
+import com.pallot.gameoflife.console.ConsoleReader;
 
 public class Main {
 	Grid thisGrid;
@@ -28,13 +28,22 @@ public class Main {
 		//new Animator(thisGrid).interval(100).run();
 		//new Animator(thisGrid).interactiveMode().run();
 		Animator animator = new AnimatorSwing(thisGrid, queue).interval(30);
+		ConsoleReader consoleReader = new ConsoleReader(); 
 		initialObjects(animator);
-		animator.run();
+		startThread(animator);
+		consoleReader.setQueue(queue);
+		startThread(consoleReader);
+		
+		
 
 		
 			
 	}
 	
+	private void startThread(Runnable runnable) {
+		Thread thread = new Thread(runnable);
+		thread.start();
+	}
 	private void initialObjects(Animator animator) {
 		Shape.GLIDER.animate(thisGrid, 12, 0);
 		Shape.GLIDER.animate(thisGrid, 20, 0);

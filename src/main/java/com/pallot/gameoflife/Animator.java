@@ -32,6 +32,7 @@ public class Animator implements Runnable {
 			if(!interactiveMode) {
 				Command command = getCommand();
 				if(command != null) {
+					if(command.exit()) break;
 					Shape.getShapeFromCommand(command.getShape()).animate(thisGrid, command.x(), command.y());
 				}
 			}

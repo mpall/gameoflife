@@ -5,6 +5,7 @@ public class Command {
 	private String shape;
 	private int x;
 	private int y;
+	private boolean exit = false;
 
 	public Command(String shape, int x, int y) {
 		this.shape = shape;
@@ -12,6 +13,10 @@ public class Command {
 		this.y = y;
 	}
 	
+	public Command(boolean exit) {
+		this.exit = exit;
+	}
+
 	public String getShape() {
 		return shape;
 	}
@@ -23,6 +28,16 @@ public class Command {
 	public int y() {
 		return y;
 	}
+	
+	public boolean exit() {
+		return exit;
+	}
+	
+	public void exit(boolean exit) {
+		this.exit = exit;
+	}
+	
+	
 
 	@Override
 	public int hashCode() {
